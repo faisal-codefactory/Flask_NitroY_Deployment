@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Prediction Results</h1>
+  <font size="4" face="Courier, Pica, Monospace">
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Residue Position</th>
+      <th>Sequence</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for site,seq in result.items()%}  
+        <tr>
+            <td>{{ site }}</td>
+            <td>{{ seq }}</td>
+        </tr>
+  {% endfor %}
+  </tbody>
+
+        
+  </table>
+
+<button class="btn btn-primary" style="margin-bottom: 3%;" onclick="history.back()">Back</button>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Prediction</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.sequence, class_="form-control", style="width: 60%;height: 170px;")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit Sequence"></p>
+  </form>
+{% endblock %}

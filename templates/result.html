@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Prediction Results</h1>
+  <font size="4" face="Courier, Pica, Monospace">
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Sequence</th>
+      <th>Prediction</th>
+      <th>Residue Position</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% if  'does' not in result and 'Inv' not in result[0] %}
+
+            {% for re in result %}
+
+                {% if 'Non' in re[1]%}
+                  <tr class="danger">
+                  <td>{{re[0]}}</td>
+                  <td>{{re[1]}}</td>
+                  <td>{{re[2]}}</td>
+                </tr>
+                {% else %}
+                <tr class="success">
+                  <td>{{re[0]}}</td>
+                  <td>{{re[1]}}</td>
+                  <td>{{re[2]}}</td>
+                </tr>   
+                {% endif %}
+
+            {% endfor %}
+        {% elif  'does' in result%}    
+        <td colspan="3" class="danger"> {{result}} </td>
+        {% else %}
+        <td colspan="3" class="warning"> {{result[0]}} </td>
+        {% endif %}
+
+    </tbody>
+</table>
+
+<button class="btn btn-primary" style="margin-bottom: 3%;" onclick="history.back()">Back</button>
+
+{% endblock %}
